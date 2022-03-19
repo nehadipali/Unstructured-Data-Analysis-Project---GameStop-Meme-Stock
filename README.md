@@ -32,8 +32,11 @@ Our objective was to determine if social media sentiment could be used to realiz
 ![image](https://user-images.githubusercontent.com/61624917/159141334-90e334ee-54b9-472e-b520-4d11fd63ae04.png)
 
 
+# Stock Price Movement Direction Prediction
+
 For the stock price movement direction prediction, the following steps were used for model creation using VADER - 
-- Sentiment analysis was done for each tweet for each day of the training period. We are more interested in the general sentiment of the tweets and not the strength of sentiment of individual tweets. Hence the direction of the compound sentiment for each tweet was considered. +1 indicated a positive sentiment, while -1 indicated a negative sentiment. For each day the score obtained in the previous step was averaged. 
+- Sentiment analysis was done for each tweet for each day of the training period. We are more interested in the general sentiment of the tweets and not the strength of sentiment of individual tweets. Hence the direction of the compound sentiment for each tweet was considered. +1 indicated a positive sentiment, while -1 indicated a negative sentiment. 
+- For each day the score obtained in the previous step was averaged. 
 - For example, if there are 100 tweets on a Tuesday, with 60 of them having positive compound score and 40 of them having negative compound score, then we have the day sentiment as {60*1 + 40*(-1)} = +20 -> As day sentiment > 0, we say direction of day sentiment = 1 (else, it would have been -1)
 - For the stock prices, we consider the difference in the closing prices. In this case, we look for the impact on Tuesday’s tweets on the direction of movement on Wednesday. If price(Wednesday) > price(Tuesday) then direction of stock = 1 (in the converse case it would have been -1)
 - For accuracy, we consider the number of times the direction of day sentiment was equal to the direction of the stock movement in the 92-day period.
